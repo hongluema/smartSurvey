@@ -5,22 +5,19 @@ import { FlowTypeInstanceIDMap } from "@/common/constant";
 
 const recursionEvents = (events: any[]) => {
   events.forEach((flowVO) => {
-    console.log('>>>>flowVO:', flowVO);
-    console.log('>>>>DataPool:', DataPool);
     const { id, type, title, params, children } = flowVO;
     const { field: fieldInstance } = useGetInstance(flowVO.params[FlowTypeInstanceIDMap[type]]);
     console.log('>>>获取实例', params, '>', fieldInstance);
     const flowFunction = FlowFunctionMap[type];
     // 执行流函数
-    flowFunction(fieldInstance)
-    if (Array.isArray(children)) {
-      recursionEvents(children)
-      // todo: 需要处理异步的情况
-      // flowFunction.then((r) => { 
-      //   console.log('>>> 接口返回的数据', r);
-      //   recursionEvents(children)
-      // })
-    }
+    console.log('>>>执行流函数', title);
+    flowFunction(fieldInstance).then((r) => { 
+      console.log('>>>上一个流函数的返回结果', r);
+      if (Array.isArray(children)) {
+        // todo: 需要处理异步的情况
+        recursionEvents(children) 
+      }
+    })
   })
 }
 

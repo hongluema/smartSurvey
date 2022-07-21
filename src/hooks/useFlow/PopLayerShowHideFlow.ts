@@ -5,6 +5,7 @@ function PopLayerShowHideFlow(field: Field) {
     visible: !field.componentProps.visible
   })
   console.log('>>>显隐弹层')
+  return Promise.resolve();
 }
 
 export default PopLayerShowHideFlow;
