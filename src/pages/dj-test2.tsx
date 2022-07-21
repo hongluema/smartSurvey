@@ -42,16 +42,6 @@ function DjTest2() {
           visible: false,
           title: '确认姓名',
           children: <div>123木头人</div>,
-          onOk: () => { 
-            const values = form.values;
-            console.log('>>>提交的值:', values);
-            eval(`console.log('>>>>哈哈', form)`);
-            form.setFieldState('dialog', (state) => {
-              console.log('>>>state', state);
-              state.componentProps.visible = !state.componentProps.visible;
-            })
-            // crawlUpdateSchemaReverseAlertFlow(schema, 'dialog_abcde')
-          }
         },
         properties: {
           "title": {
@@ -165,13 +155,6 @@ function DjTest2() {
         'x-component': 'DJButton',
         'x-component-props': {
           text: '打开弹窗',
-          onClick: () => {
-            const dialog = form.getFieldState('dialog');
-            console.log('>>>dialog:', dialog);
-            const [component, componentProps] = dialog.component;
-            componentProps.visible = !componentProps.visible;
-            // dialog.componentProps.visible = true;
-          }
         },
         'events': [
           {
