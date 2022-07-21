@@ -14,10 +14,12 @@ const recursionEvents = (events: any[]) => {
     // 执行流函数
     flowFunction(fieldInstance)
     if (Array.isArray(children)) {
-      flowFunction.then((r) => { 
-        console.log('>>> 接口返回的数据', r);
-        recursionEvents(children)
-      })
+      recursionEvents(children)
+      // todo: 需要处理异步的情况
+      // flowFunction.then((r) => { 
+      //   console.log('>>> 接口返回的数据', r);
+      //   recursionEvents(children)
+      // })
     }
   })
 }
