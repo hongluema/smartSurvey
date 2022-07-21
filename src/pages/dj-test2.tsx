@@ -76,16 +76,6 @@ function DjTest2() {
               }
             }
           },
-          // "input": {
-          //   id: 'input_asdde',
-          //   type: 'string',
-          //   title: '输入名字',
-          //   'x-decorator': 'DJProvider',
-          //   'x-component': 'DJInput',
-          //   'x-component-props': {
-          //     label: "姓名"
-          //   },
-          // }
         },
         'events': [
           {
@@ -115,6 +105,18 @@ function DjTest2() {
                     "djDebug": false,
                     "children": []
                   },
+                  {
+                    "id": "flow_TIGqmYi0mjVd",
+                    "type": "UpdateComponentPropValue",
+                    "title": "设置组件属性",
+                    "params": {
+                       "updateComponentId": "input_uudde",
+                       "componentProp": "value",
+                       "componentValue": '我是通过弹框的确定按钮设置的值',
+                       "path": ""
+                    },
+                    "djDebug": false
+                  }
                 ]
               }
             ]
@@ -142,7 +144,19 @@ function DjTest2() {
                    "formId": "form_dassa"
                 },
                 "djDebug": false
-             },
+              },
+              {
+                "id": "flow_TIGqmeri0mjVd",
+                "type": "UpdateComponentPropValue",
+                "title": "设置组件属性",
+                "params": {
+                   "updateComponentId": "input_uudde",
+                   "componentProp": "placeholder",
+                   "componentValue": '这是取消后设置的placeholder',
+                   "path": ""
+                },
+                "djDebug": false
+              }
             ],
           }
         ],
@@ -175,6 +189,28 @@ function DjTest2() {
           }
         ],
       },
+      "extraText": {
+        id: 'text_kdaslkdsa',
+        type: 'string',
+        title: '案号',
+        'x-decorator': 'DJProvider',
+        'x-component': 'DJText',
+        'x-component-props': {
+          text: "案号"
+        },
+      },
+      "extraInput": {
+        id: 'input_uudde',
+        type: 'string',
+        title: '案号输入框',
+        'x-decorator': 'DJProvider',
+        'x-component': 'DJInput',
+        'x-component-props': {
+          label: "案号1",
+          value: 'xxcxcx',
+          disabled: true
+        },
+      }
     }
   }
   return (

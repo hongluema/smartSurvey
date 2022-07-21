@@ -11,7 +11,7 @@ const recursionEvents = (events: any[]) => {
     const flowFunction = FlowFunctionMap[type];
     // 执行流函数
     console.log('>>>执行流函数', title);
-    flowFunction(fieldInstance).then((r) => { 
+    flowFunction(fieldInstance, params).then((r) => { 
       console.log('>>>上一个流函数的返回结果', r);
       if (Array.isArray(children)) {
         // todo: 需要处理异步的情况
