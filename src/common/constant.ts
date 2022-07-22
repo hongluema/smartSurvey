@@ -13,4 +13,5 @@ export const FlowTypeInstanceIDMap: Record<string, string> = {
   'PopLayerShowHideFlow': 'componentId',
   'UpdateComponentPropValue': 'updateComponentId',
   'EmitDataSource': 'formId',
+  'TableSearchFlow': 'formId',
 }

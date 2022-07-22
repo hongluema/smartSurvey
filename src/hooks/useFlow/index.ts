@@ -1,6 +1,7 @@
 import ClearFormFlow from './ClearFormFlow';
 import EmitDataSource from './EmitDataSource';
 import PopLayerShowHideFlow from './PopLayerShowHideFlow';
+import TableSearchFlow from './TableSearchFlow';
 import UpdateComponentPropValue from './UpdateComponentPropValue';
 
 const FlowFunctionMap: Record<string, Function> = {
@@ -8,6 +9,7 @@ const FlowFunctionMap: Record<string, Function> = {
   ClearFormFlow,
   EmitDataSource,
   UpdateComponentPropValue,
+  TableSearchFlow
 }
 
 export default FlowFunctionMap;

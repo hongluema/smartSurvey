@@ -86,7 +86,19 @@ function DjTest2() {
                       "formId": "form_dasjdsakjdsadsd",
                       "dataSourceParams": {}
                     },
-                  }
+                  },
+                  {
+                    "id": "flow_ePr2FMjZejyJ",
+                    "type": "TableSearchFlow",
+                    "title": "用Form的值查询Table",
+                    "params": {
+                       "formId": "form_dasjdsakjdsadsd",
+                       "dataSourceId": "function_fheHm1v22Dfn",
+                       "tableId": "table_rQ7HjMtHrP9J"
+                    },
+                    "djDebug": false,
+                    "children": []
+                 }
                 ]
               }
             ]
@@ -269,6 +281,26 @@ function DjTest2() {
         'x-component-props': {
           label: "案号1",
           value: 'xxcxcx'
+        },
+      },
+      "testdsajkdasjjksad": {
+        id: 'text_rQ7HjMtHrP9J',
+        type: 'string',
+        title: "文本",
+        'x-decorator': 'DJProvider',
+        'x-component': 'DJText',
+        'x-component-props': {
+          text: '这是通过搜索表单查询出来的数据 ⬇️'
+        },
+      },
+      "testTable": {
+        id: 'table_rQ7HjMtHrP9J',
+        type: 'string',
+        title: "案件表格",
+        'x-decorator': 'DJProvider',
+        'x-component': 'DJText',
+        'x-component-props': {
+          text: '暂无数据'
         },
       }
     }
