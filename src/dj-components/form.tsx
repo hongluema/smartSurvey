@@ -1,6 +1,6 @@
 import useDJField from '@/hooks/useDJField';
 import React, { useMemo } from 'react';
-import { createSchemaField } from '@formily/react';
+import { createSchemaField, observer } from '@formily/react';
 import {
   ArrayBase,
   ArrayCards,
@@ -16,10 +16,14 @@ import DJButton from './button';
 import DJInput from './input';
 import DJCard from './card';
 import DJProvider from './provider';
+import { DJField } from './field';
+import { createForm } from '@formily/core';
+
+const form = createForm()
 
 function DJForm(props) {
   const { children } = props;
-  const { field, fieldSchema, form } = useDJField();
+  const { field, fieldSchema } = useDJField();
 
   const SchemaField = useMemo(() => createSchemaField({ components: {
     ArrayBase,
@@ -61,11 +65,14 @@ function DJForm(props) {
 
   return (
     <div>
-      <Form form={form} previewTextPlaceholder="-" {...props}>
+      {
+        props.children
+      }
+      {/* <Form form={form} previewTextPlaceholder="-" {...props}>
         <SchemaField schema={fieldSchema} />
-      </Form>
+      </Form> */}
     </div>
   );
 }
 
-export default DJForm;
+export default observer(DJForm);

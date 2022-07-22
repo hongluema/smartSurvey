@@ -3,13 +3,16 @@ import DJInput from '@/dj-components/input';
 import DJProvider from '@/dj-components/provider';
 import { FormItem, Form } from '@formily/antd';
 import { createForm } from '@formily/core';
-import { createSchemaField, observer } from '@formily/react';
+import { createSchemaField, FormProvider, observer } from '@formily/react';
 import React, { useMemo } from 'react';
 import DJDialog from '../dj-components/dialog';
 import DJButton from '@/dj-components/button';
 import DJText from '@/dj-components/text';
 import { crawlUpdateSchemaReverseAlertFlow } from '@/components/crawl-flow';
 import DJForm from '@/dj-components/form';
+import { DJField } from '../dj-components/field';
+import { DataPool } from '@/common/dataPool';
+import { Button } from 'antd';
 
 
 const SchemaField = createSchemaField({
@@ -24,13 +27,12 @@ const SchemaField = createSchemaField({
     DJForm
   }
 })
-
 function DjTest2() {
-
   const form = useMemo(() => createForm(), [])
 
   const schema = {
     type: 'object',
+    id: "Container_rQ7HjMtHrP9J",
     properties: {
       dialog: {
         id: 'dialog_abcde',
@@ -56,7 +58,7 @@ function DjTest2() {
           },
           "form": {
             id: "form_dassa",
-            type: 'void',
+            type: 'object',
             title: '案号表单',
             'x-decorator': 'DJProvider',
             'x-component': 'DJForm',
@@ -207,8 +209,7 @@ function DjTest2() {
         'x-component': 'DJInput',
         'x-component-props': {
           label: "案号1",
-          value: 'xxcxcx',
-          disabled: true
+          value: 'xxcxcx'
         },
       }
     }
@@ -217,11 +218,22 @@ function DjTest2() {
     <div>
       DjTest2 - { JSON.stringify(form.values) }
       <div>
-        <Form form={ form }>
+        {/* <Form form={ form }>
           <SchemaField schema={schema}>
           </SchemaField>
-      </Form>
+      </Form> */}
+        {/* <FormProvider form={ form }>
+          <SchemaField schema={schema}>
+          </SchemaField>
+        </FormProvider> */}
+        <DJProvider>
+          <DJField schema={schema} form={form}>
+          </DJField>
+        </DJProvider>
       </div>
+      <Button onClick={ () => console.log('>>>>DataPool:', DataPool)}>
+        控制台打印数据源
+      </Button>
     </div>
   );
 }

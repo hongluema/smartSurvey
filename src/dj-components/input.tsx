@@ -4,7 +4,7 @@ import useDJField from '@/hooks/useDJField';
 
 function DJInput(props) {
   const { field, fieldSchema, form } = useDJField();
-  console.log('>>>props:', props);
+  console.log('>>>props:', props, field);
   return (
     <div>
       <Input {...props} />

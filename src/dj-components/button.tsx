@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import useDJField from '@/hooks/useDJField';
 
 function DJButton(props) {
-  const { eventsProps } = useDJField();
+  const { field, eventsProps } = useDJField();
   const onClick: any = eventsProps.click || (() => { });
   return (
     <div>

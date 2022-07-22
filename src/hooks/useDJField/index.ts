@@ -8,6 +8,7 @@ const useDJField = () => {
   let fieldSchema: any = useFieldSchema();
   const field: Field = useField();
   const form: any = useForm();
+  console.log('>>>>fieldSchema:', fieldSchema);
   DataPool.fieldSchemaMap.set(fieldSchema.id, field);
   const eventsProps = useEvents(fieldSchema);
   return {
