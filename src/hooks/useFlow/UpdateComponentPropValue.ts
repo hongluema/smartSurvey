@@ -1,13 +1,15 @@
 import { Field } from "@formily/core";
+import useNoComponentInstance from "../useNoComponentInstance";
 
-function UpdateComponentPropValue(field: Field, params: any) {
+function UpdateComponentPropValue(field: Field | null, params: any) {
+  useNoComponentInstance(field);
   const { componentProp, componentValue } = params;
   switch (componentProp) {
     case 'value':
-      field.setValue(componentValue);
+      field!.setValue(componentValue);
       break;
     default:
-      field.setComponentProps({
+      field!.setComponentProps({
         [componentProp]: componentValue
       })
   }

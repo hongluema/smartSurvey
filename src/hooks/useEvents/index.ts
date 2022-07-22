@@ -6,6 +6,7 @@ import { FlowTypeInstanceIDMap } from "@/common/constant";
 const recursionEvents = (events: any[]) => {
   events.forEach((flowVO) => {
     const { id, type, title, params, children } = flowVO;
+    console.log('>>>实例id:', flowVO.params[FlowTypeInstanceIDMap[type]]);
     const { field: fieldInstance } = useGetInstance(flowVO.params[FlowTypeInstanceIDMap[type]]);
     const flowFunction = FlowFunctionMap[type];
     // 执行流函数
