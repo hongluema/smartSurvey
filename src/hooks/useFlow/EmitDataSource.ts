@@ -1,10 +1,11 @@
-function EmitDataSource() {
-  console.log('>>>>发送请求')
+function EmitDataSource(field) {
+  console.log('>>>>发送请求', field);
   return new Promise((resolve) => { 
     setTimeout(() => { 
       resolve({
         name: '张三',
-        age: 16
+        age: 16,
+        ...field.value
       })
     }, 1000);
   })

@@ -34,6 +34,65 @@ function DjTest2() {
     type: 'object',
     id: "Container_rQ7HjMtHrP9J",
     properties: {
+      searchForm: {
+        id: 'form_dasjdsakjdsadsd',
+        type: 'object',
+        title: '搜索表单',
+        'x-decorator': 'DJProvider',
+        'x-component': 'DJForm',
+        properties: {
+          caseName: {
+            id: 'input_dfsakdlska',
+            type: 'string',
+            title: '案件名称',
+            'x-decorator': 'FormItem',
+            'x-component': 'DJInput',
+            'x-component-props': {
+              label: "案件名称"
+            },
+          },
+          caseId: {
+            id: 'input_dfsakdlskadasdas',
+            type: 'string',
+            title: '案件编号',
+            'x-decorator': 'FormItem',
+            'x-component': 'DJInput',
+            'x-component-props': {
+              label: "案件编号"
+            },
+          },
+          button: {
+            id: 'button_dfsakdlskadasdas',
+            type: 'void',
+            title: '查询',
+            'x-decorator': 'FormItem',
+            'x-component': 'DJButton',
+            'x-component-props': {
+              text: "查询"
+            },
+            events: [
+              {
+                type: "click",
+                content: [
+                  {
+                    "id": "flow_1q6ewewedSuAfIf",
+                    "type": "EmitDataSource",
+                    "title": "发送请求",
+                    "params": {
+                      "useLastFlow": "true",
+                      "useLastParam": false,
+                      "useEventData": false,
+                      "dataSourceId": "function_fheHm1v22Dfn",
+                      "formId": "form_dasjdsakjdsadsd",
+                      "dataSourceParams": {}
+                    },
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
       dialog: {
         id: 'dialog_abcde',
         type: 'void',

@@ -12,4 +12,5 @@ export const FlowTypeInstanceIDMap: Record<string, string> = {
   'ClearFormFlow': 'formId',
   'PopLayerShowHideFlow': 'componentId',
   'UpdateComponentPropValue': 'updateComponentId',
+  'EmitDataSource': 'formId',
 }
