@@ -53,7 +53,14 @@ function Test() {
   })
 
   obs.aa.bb = 321
-  dispose()
+  // dispose()
+
+  autorun(() => {
+    autorun.effect(() => {
+      console.log('>>>>>effect')
+    }, [])
+  })
+
   return (
     <div >
       Test

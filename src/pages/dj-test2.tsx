@@ -13,7 +13,14 @@ import DJForm from '@/dj-components/form';
 import { DJField } from '../dj-components/field';
 import { DataPool } from '@/common/dataPool';
 import { Button } from 'antd';
+import useGetInstance from '../hooks/useGetInstance/index';
 
+declare const window: any;
+window.djPage = { 
+  getInstance(id) {
+    return useGetInstance(id);
+  }
+ }; 
 
 const SchemaField = createSchemaField({
   components: {
@@ -228,7 +235,16 @@ function DjTest2() {
                    "path": ""
                 },
                 "djDebug": false
-              }
+              },
+              {
+                "id": "flow_Zd3abovUcBF8",
+                "type": "FunctionCode",
+                "title": "JS编码",
+                "params": {
+                   "body": "function flow({ parentFlowResults = [] }){\n    /** 请在这里编写函数 parentFlowResults是所有上游流函数的返回值 是一个List */\n    /** 获取上一个流函数的值 const parentFlowResult = parentFlowResults.pop() */\n    /** 流函数开发文档：https://yuque.antfin-inc.com/gongdao/ibiurh/cxtuo3#6gaDp **/\n    /** SDK文档：https://yuque.antfin-inc.com/gongdao/ibiurh/uwbvhn **/\n console.log('context:', this.getInstance('input_asdde')) ;\n this.getInstance('input_asdde').value = 'terst'}"
+                },
+                "djDebug": false
+             }
             ],
           }
         ],
@@ -321,7 +337,7 @@ function DjTest2() {
           </DJField>
         </DJProvider>
       </div>
-      <Button onClick={ () => console.log('>>>>DataPool:', DataPool)}>
+      <Button onClick={ () => console.log('>>>>DataPool:', DataPool, '大表单的值:', form.values)}>
         控制台打印数据源
       </Button>
     </div>

@@ -3,7 +3,7 @@ import FlowFunctionMap from '../useFlow';
 import { DataPool } from "@/common/dataPool";
 import { FlowTypeInstanceIDMap } from "@/common/constant";
 
-const recursionEvents = (events: any[]) => {
+const recursionEvents = (events: any[], parentResult = {}) => {
   events.forEach((flowVO) => {
     const { id, type, title, params, children } = flowVO;
     console.log('>>>实例id:', flowVO.params[FlowTypeInstanceIDMap[type]]);
@@ -15,7 +15,7 @@ const recursionEvents = (events: any[]) => {
       console.log('>>>上一个流函数的返回结果', r);
       if (Array.isArray(children)) {
         // todo: 需要处理异步的情况
-        recursionEvents(children) 
+        recursionEvents(children, r || {});
       }
     })
   })
